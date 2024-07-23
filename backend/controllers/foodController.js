@@ -20,5 +20,27 @@ const addFood = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+// Listing all foods
+const listFood = async (req, res) => {
+  try {
+    const food = await foodModel.find({});
+    res.status(200).json({ success: true, data: food });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
-export { addFood };
+// remove food item
+
+const removeFood = async (req, res) => {
+  try {
+    const food = await foodModel.findById(req.body.id);
+    fs.unlink(`uploads/${food.image}`, () => {});
+    await foodModel.findByIdAndDelete(req.body.id);
+    res.status(200).json({ success: true, message: "food removed" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export { addFood, listFood, removeFood };
