@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Add.css"
 import { assets } from '../../assets/assets'
 const Add = () => {
+
+   const [image,setimage] = useState()
+
   return (
     <div className='add'>
        <form className='flex-col'>
@@ -38,7 +41,13 @@ const Add = () => {
 
             </select>
           </div>
+          <div className="add-price flex-col">
+          <p>Product price</p>
+          <input type="number" name='price' placeholder='$12' />
         </div>
+        </div>
+        
+        <button className='add-btn' type='submit'>ADD</button>
        </form>
     </div>
   )
