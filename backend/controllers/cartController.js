@@ -40,8 +40,6 @@ const removeFromCart = async (req, res) => {
     let cartData = await userData.cart;
     // console.log(cartData);
     if (cartData[req.body.itemId] === 1) {
-      delete cartData[req.body.itemId];
-    } else {
       cartData[req.body.itemId] -= 1;
     }
     // console.log(cartData);
