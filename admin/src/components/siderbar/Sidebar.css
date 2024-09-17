@@ -1,18 +1,20 @@
-.sidebar{
+.sidebar {
   width: 18%;
   min-height: 100vh;
   border: 1.5px solid #a9a9a9;
-  border-top: 0 ;
+  border-top: 0;
   font-size: max(1vw 10px);
 }
-.sidebar-options{
+
+.sidebar-options {
   padding-top: 50px;
   padding-left: 20%;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.sidebar-option{
+
+.sidebar-option {
   display: flex;
   align-items: center;
   gap: 13px;
@@ -23,14 +25,14 @@
   cursor: pointer;
 }
 
-.sidebar-option.active{
+.sidebar-option.active {
   background-color: #fffedf;
-  border-color: tomato;
+  border-color: rgba(117, 42, 15, 0.915);
 }
 
-@media (max-width:900px){
-  .sidebar-option p{
+@media (max-width:900px) {
+  .sidebar-option p {
     display: none;
   }
-  
+
 }

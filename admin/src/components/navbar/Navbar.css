@@ -1,13 +1,20 @@
 .navbar {
- 
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px 4%;
 }
 
+/* 
+.navbar img {
+  max-width: 300px;
+  min-width: 150px;
+} */
+
 .navbar .logo {
-  width: max(10%, 80px);
+  width: max(4%, 120px);
+
 }
 
 .navbar .profile {
