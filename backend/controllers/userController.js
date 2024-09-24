@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import validator from "validator";
 
 const createToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET);
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 };
 //login user
 
@@ -33,6 +33,7 @@ const login = async (req, res) => {
 // register user
 const register = async (req, res) => {
   const { name, email, password } = req.body;
+  console.log(req.body)
   try {
     // checking user existences
     const exists = await userModel.findOne({ email });
@@ -61,7 +62,7 @@ const register = async (req, res) => {
       email: email,
       password: hashedPassword,
     });
-    const user = await newUser.save();
+     
     const token = createToken(user._id);
     return res.status(201).json({ success: true, token });
   } catch (error) {
