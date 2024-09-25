@@ -35,14 +35,12 @@ const register = async (req, res) => {
   const { name, email, password } = req.body;
   console.log(req.body)
   try {
-    // checking user existences
     const exists = await userModel.findOne({ email });
     if (exists) {
       return res
         .status(400)
         .json({ success: false, message: "User already exists" });
     }
-    // validation of email format and strong password
     if (!validator.isEmail(email)) {
       return res
         .status(400)
@@ -62,8 +60,8 @@ const register = async (req, res) => {
       email: email,
       password: hashedPassword,
     });
-     
-    const token = createToken(user._id);
+     console.log(newUser)
+    const token = createToken(newUser._id);
     return res.status(201).json({ success: true, token });
   } catch (error) {
     res.status(500).json({ success: false, message: "Internal server error" });
