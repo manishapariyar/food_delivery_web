@@ -5,10 +5,15 @@ const orderSchema = new mongoose.Schema({
   userId:{ type:String,required:true},
   items:{type:Array,required:true},
   amount:{type:Number,required:true},
-  address:{type:Object,required:true},
-  purchaseDate: { type: Date, default: Date.now },
-  paymentMethod: { type: String, enum: ["esewa", "khalti"], required: true },
-  status: { type: String, enum: ["pending", "completed", "refunded"], default: "pending" },
+  address:{
+    street:String,
+    state: String,
+    city: String,
+    ZipCode: String,
+    country: String,
+  
+  },
+  contact: {type:Number, required:true}
 
 })
 
