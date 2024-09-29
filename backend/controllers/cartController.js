@@ -61,7 +61,7 @@ const fetchCartData = async (req, res) => {
     if (!userData) {
       return res.status(404).json({ message: "User not found" });
     }
-    let cartData = await userData.cart;
+    let cartData = userData.cart; // Remove await keyword
     // console.log(cartData);
     res.status(200).json({ success: true, cartData });
   } catch (error) {
